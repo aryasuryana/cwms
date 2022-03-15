@@ -230,14 +230,14 @@ if($ptype==3): echo "COMPLEX CLEANING ($30.99)";endif;
 
        
          
-            <p><input type="text" name="transactionno" class="form-control"   placeholder="Nomor Transaksi"></p>
+            <p><input type="text" name="transactionno" class="form-control"   placeholder="Total Harga"></p>
        
-             <p><textarea name="message"  class="form-control" placeholder="Pesan" required></textarea></p>
-             <p><input type="submit" class="btn btn-custom" name="update" value="Bayar"></p>
+             <p><textarea name="message"  class="form-control" placeholder="Pesan(Lunas/Ngutang)" required></textarea></p>
+             <p><input type="submit" class="btn btn-info" name="update" value="Bayar"></p>
       </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
         </div>
       </div>
       
