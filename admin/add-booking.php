@@ -35,12 +35,12 @@ $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
  
-  echo '<script>alert("Pesanan Sukse. Nomor Pesanan Adalah "+"'.$bno.'")</script>';
+  echo '<script>alert("Pesanan Sukses. Nomor Pesanan Adalah "+"'.$bno.'")</script>';
  echo "<script>window.location.href ='new-booking.php'</script>";
 }
 else 
 {
- echo "<script>alert('Something went wrong. Please try again.');</script>";
+ echo "<script>alert('Silahkan Coba Lagi');</script>";
 }
 
 }
@@ -109,9 +109,9 @@ else
 									<div class="col-sm-8">
 								 <select name="packagetype" required class="form-control">
                 <option value="">Daftar Paket</option>
-                <option value="1">BASIC CLEANING ($10.99)</option>
-                 <option value="2">PREMIUM CLEANING ($20.99)</option>
-                  <option value="3 ">COMPLEX CLEANING($30.99)</option>
+                <option value="1">CUCI MOBIL Kecil  (Rp.40.000)</option>
+                 <option value="2">CUCI MOBIL Sedang (Rp.45.000)</option>
+                  <option value="3 ">CUCI MOBIL Besar  (Rp.50.000)</option>
               </select>
 									</div>
 								</div>
