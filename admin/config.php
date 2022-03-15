@@ -28,5 +28,16 @@ if (!$conn) {
         return $cuci;
         }
 
+
+
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect('localhost', 'root', '', 'db-carwash');
+ 
+// Check connection
+if (!$link  ) {
+    die("<script>alert('Gagal tersambung dengan database.')</script>");
+}
+?>
+
  
 ?>

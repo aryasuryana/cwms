@@ -13,4 +13,14 @@ catch (PDOException $e)
 {
 exit("Error: " . $e->getMessage());
 }
+	
+	/* Attempt to connect to MySQL database */
+$link = mysqli_connect('localhost', 'root', '', 'cwmsdb');
+ 
+// Check connection
+if (!$link  ) {
+    die("<script>alert('Gagal tersambung dengan database.')</script>");
+}
+
+
 ?>

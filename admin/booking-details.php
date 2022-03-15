@@ -188,7 +188,7 @@ if($ptype==3): echo "COMPLEX CLEANING ($30.99)";endif;
 <tr>
 	<th>Metode Pembayaran</th>
 	<td><?php echo htmlentities($result->paymentMode);?></td>
-		<th>Nomor Transaksi</th>
+		<th>Total Harga</th>
 	<td><?php echo htmlentities($result->txnNumber);?></td>
 </tr>
 <tr>

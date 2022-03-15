@@ -45,6 +45,14 @@ else
 
 }
 
+
+require "function.php";
+
+
+$id = $_GET["id"];
+$paket = $datapaket[$id];
+
+
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -107,19 +115,13 @@ else
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">DaftarPaket</label>
 									<div class="col-sm-8">
-								 <select name="packagetype" required class="form-control">
-                <option value="">Daftar Paket</option>
-                <option value="1">CUCI MOBIL Kecil  (Rp.40.000)</option>
-                 <option value="2">CUCI MOBIL Sedang (Rp.45.000)</option>
-                  <option value="3 ">CUCI MOBIL Besar  (Rp.50.000)</option>
-              </select>
+								 <input type="text" class="form-control" id="input4" disabled value="<?= $paket[0] ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Lokasi</label>
 									<div class="col-sm-8">
 								<select name="washingpoint" required class="form-control">
-                <option value="">Pilih Tempat Mencuci</option>
 <?php $sql = "SELECT * from tblwashingpoints";
 $query = $dbh -> prepare($sql);
 $query->execute();
@@ -132,8 +134,17 @@ foreach($results as $result)
 									</div>
 								</div>
 
+								<div class="form-group">
+									<label for="focusedinput" class="col-sm-2 control-label">Paket Tambahan</label>
+									<div class="col-sm-8">
+								<select name="washingpoint" required class="form-control">
+								<option></option>
+								</select>
+									</div>
+								</div>
 
-<div class="form-group">
+
+				<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Nama Pemesan</label>
 									<div class="col-sm-8">
 										<input type="text" name="fname" class="form-control" required placeholder="Nama Pemesan">
@@ -159,10 +170,17 @@ foreach($results as $result)
 
 	
 
-<div class="form-group">
+				<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Watu Mencuci</label>
 									<div class="col-sm-8">
 										<input type="time" name="washtime" required class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="focusedinput" class="col-sm-2 control-label">Harga</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="paket" id="input5" disabled value="<?= $paket[2] ?>">
 									</div>
 								</div>
 

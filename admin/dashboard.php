@@ -1,12 +1,10 @@
 <?php
-session_start();
-include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{	
-header('location:index.php');
-}
-else{
+
+require "function.php";
 ?>
+
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,96 +40,39 @@ else{
 		<ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a> <i class="fa fa-angle-right"></i></li>
             </ol>
-<!-- Price Start -->
-        <div class="price">
-            <div class="container">
-                <div class="section-header text-center">
+  <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="row">
+          <?php
+              $ambilsemuadatastok = mysqli_query($link, "SELECT * FROM tbpaketcuci");
+              $i = 0;
+              while ($data = mysqli_fetch_array($ambilsemuadatastok)) {
+                $namapaket = $data['namapaket'];
+                $deskripsi = $data['deskripsi'];
+                $harga = $data['harga'];
+          ?>
+                <div class="col box">
+                <div class="card py-3">
+                  <div class="card-body">
+                    <h3><?= $namapaket ?></h3>
+                    <p><?= $deskripsi ?> </p>
+                    <div class="card-subtitle">
+                      <h4><sup>Rp.</sup> <?= $harga ?></h4>
+                    </div>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <h3>Cuci Mobil Kecil</h3>
-                                <h2><span>Rp</span>.<strong>40.000</strong></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class=></i>suzuki karimun</li>
-                                    <li><i class=></i>toyota agya</li>
-                                    <li><i class=></i>ayla</li>
-                                    <li><i class=></i>jazz</li>
-                                    <li><i class=></i>swift</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                 <a class="btn btn-custom"href="add-booking.php">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="price-item featured-item">
-                            <div class="price-header">
-                                <h3>Cuci Mobil Sedang</h3>
-                                <h2><span>Rp.</span><strong>45.000</strong></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class=></i>Crv</li>
-                                    <li><i class=></i>Hrv</li>
-                                    <li><i class=></i>Mobilio</li>
-                                    <li><i class=></i>Civic</li>
-                                    <li><i class=></i>Avanza</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                <a class="btn btn-custom"href="add-booking.php">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-md-4">
-                        <div class="price-item featured-item">
-                            <div class="price-header">
-                                <h3>Cuci Mobil Besar</h3>
-                                <h2><span>Rp.</span><strong>50.000</strong></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class=></i>Fortuner</li>
-                                    <li><i class=></i>Pajero</li>
-                                    <li><i class=></i>Rubicon</li>
-                                    <li><i class=></i>Hilux</li>
-                                    <li><i class=></i>Triton</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                <a class="btn btn-custom"href="add-booking.php">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <h3>Cuci Mobil Super Besar</h3>
-                                <h2><span>Rp.</span><strong>55.000</strong></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class=></i>Alphard</li>
-                                    <li><i class=></i>Lexus</li>
-                                    <li><i class=></i>Vellfire</li>
-                                    <li><i class=></i>Bus</li>
-                                    <li><i class=></i>Dum Truk</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                 <a class="btn btn-custom"href="add-booking.php">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pilih pt-4">
+                  <a class="btn-buy" href="add-booking.php?id=<?= $i++ ?>" role="button">Pilih Paket</a>
                 </div>
-            </div>
+              </div>
+                
+          <?php }; ?>
         </div>
-        <!-- Price End -->
+
+      </div>
+    </section><!-- End Pricing Section -->
 
 
 <div class="inner-block">
@@ -233,4 +174,3 @@ else{
 	</script>
 </body>
 </html>
-<?php } ?>
